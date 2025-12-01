@@ -1,0 +1,102 @@
+{% include 'doctor_header.html' %}
+
+<h3 class="text-center my-4 text-primary">🩺 View Appointments</h3>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for i in data['view'] %}
+        <div class="col">
+            <div class="card shadow-lg h-100 border-0">
+                <div class="card-body text-center">
+                    <div class="patient-avatar mx-auto mb-3">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h5 class="card-title text-dark">{{ i['first_name'] }}</h5>
+                    <p class="card-text">
+                        <i class="fas fa-calendar-alt text-danger"></i> <strong>Date:</strong> {{ i['date'] }}
+                    </p>
+                    <div class="d-grid gap-2">
+                        <a href="/viewpatient?id={{ i['patient_id'] }}" class="btn btn-info">
+                            <i class="fas fa-user-circle"></i> View Patient Details
+                        </a>
+                        <a href="/addprescription?id={{ i['appointment_id'] }}" class="btn btn-success">
+                            <i class="fas fa-pills"></i> Add Prescription
+                        </a>
+                        <a href="/add_additional_documents?id={{ i['appointment_id'] }}" class="btn btn-warning">
+                            <i class="fas fa-file-medical"></i> Add Additional Info
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% include 'footer.html' %}
+
+<style>
+    body {
+        background: #f7f9fc;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .card {
+        border-radius: 12px;
+        transition: transform 0.3s ease-in-out;
+        border: none;
+        background: #ffffff;
+        padding: 20px;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-title {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        color: #555;
+    }
+
+    .btn {
+        font-weight: bold;
+        transition: transform 0.2s;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+    }
+
+    .btn-info {
+        background: linear-gradient(to right, #17a2b8, #138496);
+        border: none;
+    }
+
+    .btn-success {
+        background: linear-gradient(to right, #28a745, #218838);
+        border: none;
+    }
+
+    .btn-warning {
+        background: linear-gradient(to right, #ffc107, #ff9800);
+        border: none;
+    }
+
+    .patient-avatar {
+        font-size: 3rem;
+        color: #6c757d;
+    }
+
+    h3 {
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #333;
+    }
+</style>

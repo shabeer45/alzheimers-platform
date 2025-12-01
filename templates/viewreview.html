@@ -1,0 +1,50 @@
+{% include 'admin_header.html' %}
+
+<h3 class="text-center my-4">View Reviews</h3>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        {% for i in data['view'] %}
+        <div class="col">
+            <div class="card shadow-lg h-100">
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Review:</strong><br>
+                        {{ i['review_des'] }}
+                    </p>
+                    <p class="card-text">
+                        <strong>Date:</strong> {{ i['date'] }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% include 'footer.html' %}
+<style>
+    .card {
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+.card-text {
+    font-size: 1rem;
+    color: #333;
+}
+h3 {
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+</style>

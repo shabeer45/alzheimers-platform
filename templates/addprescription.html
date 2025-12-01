@@ -1,0 +1,76 @@
+{% include 'doctor_header.html' %}
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="prescription-container p-4">
+        <h2 class="text-center text-primary"><i class="fas fa-prescription-bottle-alt"></i> Add Prescription</h2>
+        <p class="text-center text-muted">Ensure correct details to assist Alzheimer's patients effectively.</p>
+
+        <form action="" method="post">
+            <div class="mb-3">
+                <label for="prescription" class="form-label"><strong>Prescription Details</strong></label>
+                <textarea class="form-control" id="prescription" name="addprescription" rows="4" placeholder="Enter prescription details..." required></textarea>
+            </div>
+
+            <button type="submit" name="submit" class="btn btn-primary w-100">
+                <i class="fas fa-plus-circle"></i> Add Prescription
+            </button>
+        </form>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+
+<style>
+    body {
+        background: linear-gradient(to right, #667eea, #764ba2);
+        font-family: 'Arial', sans-serif;
+    }
+
+    .prescription-container {
+        width: 100%;
+        max-width: 450px;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        padding: 25px;
+        animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-15px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    h2 {
+        font-weight: bold;
+        color: #4b0082;
+    }
+
+    .form-control {
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .btn-primary {
+        background: linear-gradient(to right, #4a90e2, #9013fe);
+        border: none;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 12px;
+        border-radius: 8px;
+        transition: 0.3s ease-in-out;
+    }
+
+    .btn-primary:hover {
+        background: linear-gradient(to right, #3b7dd8, #7d0ee8);
+        transform: scale(1.05);
+    }
+</style>

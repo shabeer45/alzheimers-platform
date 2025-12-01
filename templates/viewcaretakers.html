@@ -1,0 +1,74 @@
+{% include 'admin_header.html' %}
+
+<h3 class="text-center my-4 text-primary">🧑‍⚕️ View Caretakers</h3>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for i in data['view'] %}
+        <div class="col">
+            <div class="card shadow-lg h-100 border-0">
+                <div class="card-body text-center">
+                    <div class="caretaker-avatar mx-auto mb-3">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h5 class="card-title text-dark">{{ i['first_name'] }} {{ i['last_name'] }}</h5>
+                    <p class="card-text">
+                        <i class="fas fa-envelope text-primary"></i> <strong>Email:</strong> {{ i['email'] }}<br>
+                        <i class="fas fa-phone text-success"></i> <strong>Phone:</strong> {{ i['phone'] }}<br>
+                        <i class="fas fa-venus-mars text-info"></i> <strong>Gender:</strong> {{ i['gender'] }}<br>
+                        <i class="fas fa-map-marker-alt text-danger"></i> <strong>Location:</strong> {{ i['place'] }}
+                    </p>
+                    <a href="admin_viewpatient?id={{ i['caretaker_id'] }}" class="btn btn-primary w-100">
+                        <i class="fas fa-users"></i> View Patients
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% include 'footer.html' %}
+
+<style>
+    body {
+        background: #f8f9fa;
+        font-family: 'Arial', sans-serif;
+    }
+    
+    .card {
+        border-radius: 12px;
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .card-title {
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+    
+    .card-text {
+        font-size: 0.9rem;
+        color: #444;
+    }
+    
+    .btn-primary {
+        background: linear-gradient(to right, #4a90e2, #9013fe);
+        border: none;
+        font-weight: bold;
+    }
+    
+    .btn-primary:hover {
+        background: linear-gradient(to right, #3b7dd8, #7d0ee8);
+        transform: scale(1.02);
+    }
+
+    .caretaker-avatar {
+        font-size: 3rem;
+        color: #6c757d;
+    }
+</style>

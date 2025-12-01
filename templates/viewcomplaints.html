@@ -1,0 +1,52 @@
+<!-- {% include 'admin_header.html' %}
+
+<h3 class="text-center my-4">View Complaints</h3>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        {% for i in data['view'] %}
+        <div class="col">
+            <div class="card shadow-lg h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">{{ i['title'] }}</h5>
+                    <p class="card-text">
+                        <strong>Description:</strong> {{ i['description'] }}<br>
+                        <strong>Reply:</strong> {{ i['reply'] if i['reply'] else 'No reply yet' }}<br>
+                        <strong>Date:</strong> {{ i['date'] }}
+                    </p>
+                    <a href="/reply?id={{ i['complaint_id'] }}" class="btn btn-success w-100">Reply</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% include 'footer.html' %}
+<style>
+.card {
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.card-text {
+    font-size: 0.9rem;
+    color: #555;
+}
+.btn-success {
+    background-color: #28a745;
+    border: none;
+}
+.btn-success:hover {
+    background-color: #218838;
+}
+</style> -->

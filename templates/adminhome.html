@@ -1,0 +1,118 @@
+{% include 'admin_header.html' %}
+
+<!-- Hero Section -->
+<section id="hero" class="hero section light-background" style="position: relative; text-align: center; color: white; margin: 0; padding: 0;">
+
+    <!-- Background Image with Dark Overlay -->
+    <div class="hero-bg" style="
+        background: url('/static/assets/img/hihi.jpg') no-repeat center center/cover;
+        width: 100%;
+        height: 680px;
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        opacity: 0.85;
+        filter: brightness(80%);
+    ">
+    </div>
+
+    <!-- Floating Alzheimer’s Thoughts (Top) -->
+    <div class="floating-thoughts top-thoughts">
+        <div class="thought thought-1"><i class="bi bi-brain"></i> "Memories may fade, but love remains."</div>
+        <!-- <div class="thought thought-2"><i class="bi bi-lightbulb"></i> "Every moment is precious."</div>
+        <div class="thought thought-3"><i class="bi bi-heart"></i> "Patience and care make a difference."</div> -->
+        <div class="thought thought-4"><i class="bi bi-calendar-heart"></i> "Cherish the now, embrace the moment."</div>
+        <div class="thought thought-5"><i class="bi bi-person-hearts"></i> "A gentle touch can bring a smile."</div>
+        <div class="thought thought-6"><i class="bi bi-emoji-smile"></i> "Kindness speaks louder than words."</div>
+    </div>
+
+    <!-- Welcome Message -->
+    <div class="container position-relative" style="z-index: 2; padding-top: 180px;">
+        <h2 class="animated fadeInDown">WELCOME ADMIN</h2>
+        <p>Managing Alzheimer's Care with Innovation</p>
+    </div>
+
+    <!-- Floating Alzheimer’s Thoughts (Bottom) -->
+    <div class="floating-thoughts bottom-thoughts">
+        <div class="thought thought-7"><i class="bi bi-shield-heart"></i> "Hope and care light the way."</div>
+        <div class="thought thought-8"><i class="bi bi-hand-thumbs-up"></i> "Support makes the journey easier."</div>
+        <!-- <div class="thought thought-9"><i class="bi bi-cloud-heart"></i> "Memories are never truly lost."</div>
+        <div class="thought thought-10"><i class="bi bi-stars"></i> "Compassion makes all the difference."</div>
+    </div> -->
+
+</section>
+
+<!-- Floating Thought Styles -->
+<style>
+/* Remove extra space */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure hero starts at the very top */
+#hero {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* Floating Thoughts */
+.floating-thoughts {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+}
+
+.top-thoughts {
+    top: 50px;
+}
+
+.bottom-thoughts {
+    bottom: 50px;
+}
+
+/* Thought Styling */
+.thought {
+    position: absolute;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 12px 18px;
+    border-radius: 25px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;
+    font-weight: bold;
+    backdrop-filter: blur(8px);
+    animation: float 10s ease-in-out infinite alternate;
+    z-index: 3;
+}
+
+.thought i {
+    font-size: 20px;
+    color: #007bff;
+}
+
+/* Adjusted positions for top thoughts */
+.thought-1 { top: 10%; left: 5%; animation-delay: 0s; }
+.thought-2 { top: 30%; right: 10%; animation-delay: 1s; }
+.thought-3 { bottom: 35%; left: 15%; animation-delay: 2s; }
+.thought-4 { bottom: 50%; right: 8%; animation-delay: 3s; }
+.thought-5 { top: 5%; right: 20%; animation-delay: 4s; }
+.thought-6 { bottom: 15%; left: 10%; animation-delay: 5s; }
+
+/* Adjusted positions for bottom thoughts */
+.thought-7 { bottom: 10%; right: 10%; animation-delay: 6s; }
+.thought-8 { bottom: 20%; left: 12%; animation-delay: 7s; }
+.thought-9 { bottom: 5%; left: 20%; animation-delay: 8s; }
+.thought-10 { bottom: 30%; right: 5%; animation-delay: 9s; }
+
+@keyframes float {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    50% { transform: translateY(-15px) scale(1.05); opacity: 0.95; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+</style>
+
+{% include 'footer.html' %}

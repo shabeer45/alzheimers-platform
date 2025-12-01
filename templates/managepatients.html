@@ -1,0 +1,31 @@
+{%include 'public_header.html'%}
+
+<h3>manage patients </h3>
+
+<table border="1">
+    <tr>
+        <th>first_name</th>
+        <th>last_name</th>
+        <th>gender</th>
+        <th>dob</th>
+        <th>gender</th>
+
+    </tr>
+    {% for i in data['view']  %}
+    <tr>
+        
+        <td>{{i['first_name']}}</td>
+        <td>{{i['last_name']}}</td>
+        <td>{{i['gender']}}</td>
+        <td>{{i['dob']}}</td>
+        
+
+
+
+
+
+    </tr>
+    {% endfor %}
+    
+</table>
+{%include 'footer.html'%}
