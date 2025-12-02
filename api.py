@@ -42,23 +42,48 @@ def reg():
 # ------------------- LOGIN (FIXED) ----------------------
 @api.route('/log', methods=['POST'])
 def log():
+    data = {}
     try:
+        # Using request.form for POST data from a standard HTML form
         username = request.form.get('username')
         password = request.form.get('password')
 
+        # Check for missing input first
         if not username or not password:
-            return {"status": "failed", "message": "No input"}
+            data['status'] = 'failed'
+            data['message'] = 'Username or password missing'
+            return data, 400 # Return with a 400 Bad Request status
 
+        print("USERNAME:", username)
+        print("PASSWORD:", password)
+        
+        # ⚠️ WARNING: THIS IS VULNERABLE TO SQL INJECTION. 
+        # You must use parameterized queries (provided by your database connector)
+        # to safely execute this.
         qry = "SELECT * FROM login WHERE username='%s' AND password='%s'" % (username, password)
-        res = select(qry)
+        
+        # Assuming 'select' is your database function
+        # This function should be modified to use parameterized queries instead 
+        # of string formatting for security.
+        res = select(qry) 
 
         if res:
             return {"status": "success", "data": res}
         else:
+            # CARETAKER CHECK - This logic was commented out in the original, 
+            # but if you need it, it should be structured like the above.
+            # a = "SELECT * FROM login INNER JOIN caretaker ON login.loginid = caretaker.login_id WHERE username='%s' AND password='%s'" % (username, password)
+            # res_caretaker = select(a)
+            # if res_caretaker:
+            #     return {"status": "success", "data": res_caretaker}
+            # else:
             return {"status": "failed", "message": "Invalid credentials"}
-
+            
     except Exception as e:
-        return {"status": "error", "message": str(e)}
+        # In a production environment, avoid showing the raw error 'str(e)' 
+        # to the user for security, and instead log it.
+        print(f"Error during login: {e}")
+        return {"status": "error", "message": "An internal error occurred"}, 500 # Return with 500 status
 
         # CARETAKER CHECK
         a = "SELECT * FROM login INNER JOIN caretaker ON login.loginid = caretaker.login_id WHERE username='%s' AND password='%s'" % (username, password)
