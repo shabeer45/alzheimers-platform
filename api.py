@@ -42,19 +42,23 @@ def reg():
 # ------------------- LOGIN (FIXED) ----------------------
 @api.route('/log', methods=['POST'])
 def log():
-    data = {}
-
     try:
         username = request.form.get('username')
         password = request.form.get('password')
 
-        print("USERNAME:", username)
-        print("PASSWORD:", password)
-
         if not username or not password:
-            data['status'] = 'failed'
-            data['message'] = 'Username or password missing'
-            return jsonify(data)
+            return {"status": "failed", "message": "No input"}
+
+        qry = "SELECT * FROM login WHERE username='%s' AND password='%s'" % (username, password)
+        res = select(qry)
+
+        if res:
+            return {"status": "success", "data": res}
+        else:
+            return {"status": "failed", "message": "Invalid credentials"}
+
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
 
         # CARETAKER CHECK
         a = "SELECT * FROM login INNER JOIN caretaker ON login.loginid = caretaker.login_id WHERE username='%s' AND password='%s'" % (username, password)
