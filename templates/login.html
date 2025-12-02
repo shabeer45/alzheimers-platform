@@ -55,16 +55,37 @@
     text-decoration: underline;
     color: #4a47a3;
   }
-
 </style>
 
 <div class="login-container">
   <h1>🧠 Alzheimer's Support Login</h1>
 
-  <form action="" method="post">
-    <input type="text" class="form-control" placeholder="👤 User Name" name="username" required>
-    <input type="password" class="form-control" placeholder="🔑 Password" name="password" required>
-    <input type="submit" name="submit" value="LOGIN" class="btn btn-primary w-100">
+  <!-- IMPORTANT: action changed to /log -->
+  <form action="/log" method="post">
+
+    <input 
+      type="text" 
+      class="form-control" 
+      placeholder="👤 User Name" 
+      name="username" 
+      required
+    >
+
+    <input 
+      type="password" 
+      class="form-control" 
+      placeholder="🔑 Password" 
+      name="password" 
+      required
+    >
+
+    <input 
+      type="submit" 
+      name="submit" 
+      value="LOGIN" 
+      class="btn btn-primary w-100"
+    >
+
   </form>
 
   <a href="/forgot-password" class="forgot-password">Forgot Password?</a>
