@@ -1725,5 +1725,6 @@ section,
 # Starter Section Section
 --------------------------------------------------------------*/
 .starter-section {
-  /* Add your styles here */
+  min-height: 100vh;
+  position: relative;
 }

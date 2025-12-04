@@ -5,7 +5,7 @@
       
       <!-- Logo & Contact Info -->
       <div class="col-lg-4 col-md-6 footer-about">
-      <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
+        <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
           <span class="sitename">🧠 Neuropath</span>
         </a>
         <p class="footer-text">
@@ -31,11 +31,11 @@
       <div class="col-lg-2 col-md-3 footer-links">
         <h4>🌍 Quick Links</h4>
         <ul>
-          <li><a href="#">🏡 Home</a></li>
-          <li><a href="#">💡 About Us</a></li>
-          <li><a href="#">🔬 Research</a></li>
-          <li><a href="#">📜 Terms of Service</a></li>
-          <li><a href="#">🔒 Privacy Policy</a></li>
+          <li><a href="/">🏡 Home</a></li>
+          <li><a href="/about">💡 About Us</a></li>
+          <li><a href="/research">🔬 Research</a></li>
+          <li><a href="/terms">📜 Terms of Service</a></li>
+          <li><a href="/privacy">🔒 Privacy Policy</a></li>
         </ul>
       </div>
 
@@ -80,14 +80,14 @@
   <i class="bi bi-arrow-up-short"></i>
 </a>
 
-<!-- JS Files -->
-<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
-<script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
-<script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
-<script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
-<script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
-<script src="{% static 'assets/js/main.js' %}"></script>
+<!-- ✅ ✅ ✅ FIXED FLASK JS FILE PATHS -->
+<script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
 
 <!-- Footer CSS -->
 <style>
@@ -158,3 +158,4 @@
     }
   }
 </style>
+
